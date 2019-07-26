@@ -1,0 +1,29 @@
+<div>
+	<h3>批次：${name} ,编号数组：【${#list: numbers }<i> ${number }</i>&nbsp;${#list/}】</h3>
+	<h3>标题：${project.name } ,成员数量：${project.menber.size }  ,成员组成:${#list:project.menber.types  }<i>${0}</i>&nbsp;${#list/} </h3>
+	<div>
+		<ul>
+			${#list:students}
+			<li>
+				<span>姓名：[${name}]</span>
+				<span>年龄：[${ age }]</span>
+				<span>性别：[${ sex }]</span>
+				<span>性别：
+					${#if sex eq '1'}[男]${#if/}
+					${#if sex eq '0'}[女]${#if/}
+				</span>
+			</li>
+			${#list/} 
+		</ul>
+	</div>
+	<div>
+		<ul>
+			${#list:students}
+			<li>
+				<span>姓名：[${name}]</span>
+				<span>年龄：[${ age }]</span>
+			</li>
+			${#list/}
+		</ul>
+	</div>
+</div>
