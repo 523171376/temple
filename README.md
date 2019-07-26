@@ -1,1 +1,1 @@
-# temple
+# temple.js
