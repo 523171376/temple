@@ -1,11 +1,18 @@
 /**
- * temple  
+ * temple JS异步刷新模板化加载
  * 
  * @author WC 2019/07/17
  * @version V1.0.1
  * 
- * @description ${project.name} 赋值
- * 		        ${#list:students}<span>循环</span>${#list/} 循环赋值
+ * @description 
+ * #模板赋值语法
+ * ${project.name} --赋值
+ * ${#list:students}<span>循${name}环</span>${#list/} --循环赋值
+ * ${#if: sex eq '1'}<span>男</span>${#if/} --判断
+ * 				
+ * #调用 'content'--模板    data-- 参数
+ * Temple.load('content');
+ * Temple.load('content', data);
  * 
  */
 var Temple = function(){
@@ -16,13 +23,7 @@ var Temple = function(){
 
 	this.readProperties = function(arg){
 		var obj = {};
-		var pros = arg.split('\n');
-		//FIXME 正则截取替换
-//		var pros = arg.match(/[^#].*$/g);
-
-		pros.forEach(function(_entity){
-			if(_entity.indexOf('#') == 0)return;
-			if(!_entity.trim())return;
+		arg.match(/^[^#\s].*$/gm).forEach(function(_entity){
 			var temp = _entity.split('=');
 			obj[temp[0].trim()] = temp[1].trim();
 		});
