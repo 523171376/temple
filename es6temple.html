@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<style>
+		body {
+			margin: 0;
+			padding: 10px;
+		}
+		
+		.box {
+			margin: 15px 35px;
+			border: 1px solid #e2e2e2;
+			min-height: 60px;
+			padding: 10px;
+		}
+	</style>
+	</head>
+	<body>
+		<h3>加载模板</h3>
+		<temple-load class="box" url="ht/content" type="1"></temple-load>
+		<h3>加载模板并赋值</h3>
+		<temple-load class="box" url="ht/content" type="2"></temple-load>
+		<h3>加载模板并赋值渲染</h3>
+		<temple-load class="box" url="ht/content" type="3"></temple-load>
+		
+	<script src="js/es6temple-1.0.0.js" type="text/javascript" charset="utf-8"></script>	
+	</body>
+	
+	<script>
+		var data = {
+			id:"00100",
+			name:"第一批过审项目",
+			numbers:[3,4,2,3],
+			project:{
+				name:"游乐园项目",
+				type:"1",
+				menber:{
+					size:3,
+					types:["学生","车务","销售"]
+				}
+			},
+			students:[{
+				name:"小红",
+				age:"18"
+			},{
+				name:"小明",
+				age:"16"
+			},{
+				name:"欢欢",
+				age:"13"
+			}]
+		};
+
+		
+	</script>
+</html>
