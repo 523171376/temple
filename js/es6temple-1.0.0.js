@@ -33,10 +33,18 @@
 					.forEach(templeLoadHandler);
 			}
 			
+			function transferChars(str){
+				return str.replace( /<[^>]+>/g, function(meacher){
+					return '&lt;' + meacher.substring(1,meacher.length-1) + '&gt;';
+				});
+			}
+			
 			function templeLoadHandler(element){
 				element.style.display = 'block';
 				var zurl = element.url;
 				var type = element.type;
+				element.removeAttribute('url');
+				element.removeAttribute('type');
 				
 				var xhr = new XMLHttpRequest();
 				xhr.open('GET', zurl + '.ht', false);
@@ -44,10 +52,13 @@
 					if(xhr.readyState === 4 && xhr.status === 200){
 						var text = xhr.responseText;
 						if('1' === type){
-							text = '<xmp>'+text+'</xmp>';
+							//text = transferChars(text);
+							text = '<xmp>' + text + '</xml>';
+							 
 						}
 						if('2' === type){
-							text = '<xmp>'+text+'</xmp>';
+							//text = transferChars(text);
+							text = '<xmp>' + text + '</xml>';
 						}
 				    	element.innerHTML = text;
 					}
