@@ -51,15 +51,8 @@
 				xhr.onreadystatechange = function(data){
 					if(xhr.readyState === 4 && xhr.status === 200){
 						var text = xhr.responseText;
-						if('1' === type){
-							//text = transferChars(text);
-							text = '<xmp>' + text + '</xml>';
-							 
-						}
-						if('2' === type){
-							//text = transferChars(text);
-							text = '<xmp>' + text + '</xml>';
-						}
+						text = ('1' === type || '2' === type) && '<xmp>' + text + '</xml>' || text;
+						//text = ('1' === type || '2' === type) && transferChars(text) || text;
 				    	element.innerHTML = text;
 					}
 				}
